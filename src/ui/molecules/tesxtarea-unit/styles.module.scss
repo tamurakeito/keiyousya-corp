@@ -1,0 +1,45 @@
+.textarea_unit {
+  /* Input Field */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+
+  width: 240px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  .textarea_label {
+    /* Label */
+
+    /* Body Base */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+
+    color: #1e1e1e;
+  }
+
+  .textarea_description {
+    /* Description */
+
+    /* Body Base */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+
+    color: #757575;
+  }
+}

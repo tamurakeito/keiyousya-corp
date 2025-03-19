@@ -1,0 +1,363 @@
+@import "@assets/styles/variables";
+// @import "@assets/styles/mixins";
+
+.about_table {
+  /* About Table */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 60px 0px 60px 180px;
+  gap: 16px;
+
+  width: 970px;
+  height: 344px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+  .about_row {
+    /* About Row */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    &_type {
+      /* 分類 */
+
+      width: 160px;
+
+      font-family: "Noto Sans JP";
+      font-style: normal;
+      font-weight: 350;
+      font-size: 20px;
+      line-height: 24px;
+      /* identical to box height */
+      display: flex;
+      align-items: center;
+
+      color: $BLAK1000;
+
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    &_value {
+      /* 値 */
+
+      font-family: "Noto Sans JP";
+      font-style: normal;
+      font-weight: 350;
+      font-size: 20px;
+      line-height: 24px;
+      /* identical to box height */
+      display: flex;
+      align-items: center;
+
+      color: $BLAK1000;
+
+      /* Inside auto layout */
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+  }
+}
+
+.product {
+  /* Product */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 84px;
+  margin-top: 84px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
+  .name_and_image {
+    /* Name & Image */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    .name {
+      /* Name */
+
+      /* Auto layout */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 48px;
+      gap: 24px;
+
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+
+      .product_name {
+        /* 統合診療システム｜Model 01 */
+
+        font-family: "Noto Sans JP";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 36px;
+        /* identical to box height */
+        display: flex;
+        align-items: center;
+
+        color: $GRAY900;
+
+        /* Inside auto layout */
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+
+      .description {
+        /* （2025年7月頃 販売開始予定） */
+
+        font-family: "Noto Sans JP";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+
+        color: $GRAY700;
+
+        /* Inside auto layout */
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+      }
+    }
+
+    .image {
+      /* Model 01 */
+
+      /* Auto layout */
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px;
+
+      width: 520px;
+      height: 400px;
+
+      /* Inside auto layout */
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+
+      .product_image {
+        /* Clinical Record 1 */
+
+        position: absolute;
+        width: 355.56px;
+        height: 200px;
+        left: 142.5px;
+        top: 10px;
+
+        border: 6px solid $GRAY800;
+        filter: drop-shadow(-4px 8px 16px rgba(0, 0, 0, 0.15));
+        border-radius: 4px;
+        &_01 {
+          z-index: 2;
+          left: 142.5px;
+          top: 10px;
+        }
+        &_02 {
+          z-index: 1;
+          left: 19.5px;
+          top: 187px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .body {
+    /* Body */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+
+    width: 600px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    .paragraph {
+      font-family: "Noto Sans JP";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      /* or 150% */
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.02em;
+
+      color: $GRAY900;
+
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+    }
+  }
+}
+
+.explanation {
+  /* 当社事業へのお問い合わせは、下記フォームにて承っております。 */
+
+  font-family: "Noto Sans JP";
+  font-style: normal;
+  font-weight: 350;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  margin: 48px 0;
+
+  color: $BLAK1000;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.notes {
+  /* discription */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 48px;
+  gap: 12px;
+
+  background: $GRAY100;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+
+  .note {
+    /* 通常、1~3営業日程度で担当者よりご連絡させていただきます。 */
+
+    font-family: "Noto Sans JP";
+    font-style: normal;
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+
+    color: $GRAY700;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+}
+
+.form_area {
+  /* Form Area */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  gap: 24px;
+
+  .form {
+    /* Form */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+
+    .form_parameter {
+      /* Parameter */
+
+      /* Auto layout */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 12px;
+    }
+  }
+
+  .send_button {
+    /* Button */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 48px;
+    gap: 10px;
+
+    width: 128px;
+    height: 40px;
+
+    /* system/gray800 */
+    background: #424242;
+    border-radius: 6px;
+  }
+}

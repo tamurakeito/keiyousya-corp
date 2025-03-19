@@ -1,0 +1,83 @@
+@import "@assets/styles/variables";
+@import "@assets/styles/mixins";
+
+.section {
+  @include container;
+  /* ABOUT */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 96px 48px;
+  gap: 0px;
+
+  &.white {
+    background: $WHITE000;
+  }
+  &.gray {
+    background: $GRAY050;
+  }
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+
+  .title_and_discription {
+    /* Title */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    .title {
+      /* タイトル */
+
+      font-family: "Noto Sans JP";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 43px;
+      display: flex;
+      align-items: center;
+
+      /* system/gray900 */
+      color: $GRAY900;
+
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    .discription {
+      /* 詳細説明 */
+      font-family: "Noto Sans JP";
+      font-style: normal;
+      font-weight: 350;
+      font-size: 16px;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+
+      /* system/gray900 */
+      color: #212121;
+
+      /* Inside auto layout */
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+  }
+}

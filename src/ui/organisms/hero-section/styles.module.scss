@@ -1,0 +1,121 @@
+@import "@assets/styles/variables";
+@import "@assets/styles/mixins";
+
+.hero_section {
+  @include container;
+  /* Hero */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  isolation: isolate;
+
+  background-image: url("@assets/images/hero-image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: calc(600 / 1440 * 100%);
+
+  // スマートフォン向け
+  @media (max-width: $BREAKPOINT_SM) {
+    display: none;
+  }
+
+  // タブレット向け
+  @media (min-width: $BREAKPOINT_SM) and (max-width: $BREAKPOINT_MD) {
+    display: none;
+  }
+
+  // PC最大幅
+  @media (min-width: $BREAKPOINT_LG) {
+    width: $BREAKPOINT_LG;
+    padding-bottom: calc(600 / 1440 * $BREAKPOINT_LG);
+  }
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
+  .hero_contents {
+    /* Hero Content */
+
+    /* Auto layout */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 48px;
+    gap: 48px;
+
+    height: calc(600 / 1440 * 100vw);
+
+    // PC最大幅
+    @media (min-width: $BREAKPOINT_LG) {
+      height: calc(600 / 1440 * $BREAKPOINT_LG);
+    }
+
+    background: linear-gradient(
+      270deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 99%
+    );
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 2;
+
+    .hero_captions {
+      /* Text */
+
+      /* Auto layout */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 10px;
+
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+
+      .hero_caption {
+        font-family: "Noto Sans JP";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 43px;
+        display: flex;
+        align-items: left;
+
+        /* system/gray900 */
+        color: #212121;
+
+        /* Inside auto layout */
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+
+        // キャプション切り返し
+        @media (min-width: $BREAKPOINT_MD) and (max-width: 1320px) {
+          flex-direction: column;
+        }
+
+        // フォント拡大
+        @media (min-width: 1720px) {
+          font-size: 46px;
+          line-height: 53px;
+        }
+      }
+    }
+  }
+}

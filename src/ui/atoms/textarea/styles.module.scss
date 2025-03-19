@@ -1,0 +1,27 @@
+@import "@assets/styles/variables";
+
+.textarea {
+  /* Textarea */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 12px 16px;
+  isolation: isolate;
+
+  width: 500px;
+  min-width: 240px;
+  height: 270px;
+  min-height: 80px;
+
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 1;
+}

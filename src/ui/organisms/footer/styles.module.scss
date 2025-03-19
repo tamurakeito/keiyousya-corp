@@ -1,0 +1,112 @@
+@import "@assets/styles/variables";
+@import "@assets/styles/mixins";
+
+.footer {
+  @include container;
+  /* Footer */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 48px 24px;
+  gap: 48px;
+
+  background: $WHITE000;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 5;
+  align-self: stretch;
+  flex-grow: 0;
+
+  .logo_and_navigation {
+    /* Logo & Navigation */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 96px;
+
+    width: 323px;
+    height: 300px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    .navigation {
+      /* Navigation */
+
+      /* Auto layout */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 12px;
+      gap: 24px;
+      width: 98px;
+      height: 172px;
+
+      /* Inside auto layout */
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+
+      .navigation_tab {
+        /* TOP */
+
+        width: 33px;
+        height: 19px;
+
+        font-family: "Noto Sans JP";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+
+        /* system/gray700 */
+        color: #616161;
+
+        /* Inside auto layout */
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+    }
+  }
+
+  .copyright {
+    /* Copy Right */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+    /* ©︎2025 株式会社慧陽社 */
+
+    font-family: "Noto Sans JP";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+
+    /* system/gray700 */
+    color: $GRAY700;
+  }
+}
