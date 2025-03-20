@@ -12,8 +12,14 @@ export const Select = ({
 }) => {
   return (
     <div className={classes.select}>
-      <select value={value} onChange={(e) => setValue(e.target.value)}>
-        <option value="">{placeholder}</option>
+      <select
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className={value === "" ? classes.placeholder : ""}
+      >
+        <option value="" disabled selected>
+          {placeholder}
+        </option>
         <option value="option1">医師</option>
         <option value="option2">歯科医師</option>
         <option value="option2">助産師</option>

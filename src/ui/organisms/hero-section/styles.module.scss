@@ -1,8 +1,8 @@
-@import "@assets/styles/variables";
-@import "@assets/styles/mixins";
+@use "@assets/styles/variables" as var;
+@use "@assets/styles/mixins" as mix;
 
 .hero_section {
-  @include container;
+  @include mix.container;
   /* Hero */
 
   /* Auto layout */
@@ -19,27 +19,21 @@
   background-repeat: no-repeat;
   padding-bottom: calc(600 / 1440 * 100%);
 
-  // スマートフォン向け
-  @media (max-width: $BREAKPOINT_SM) {
-    display: none;
-  }
+  // // スマートフォン向け
+  // @media (max-width: (var.$BREAKPOINT_SM - 1px)) {
+  //   display: none;
+  // }
 
-  // タブレット向け
-  @media (min-width: $BREAKPOINT_SM) and (max-width: $BREAKPOINT_MD) {
-    display: none;
-  }
+  // // タブレット向け
+  // @media (min-width: var.$BREAKPOINT_SM) and (max-width: (var.$BREAKPOINT_MD - 1px)) {
+  //   display: none;
+  // }
 
   // PC最大幅
-  @media (min-width: $BREAKPOINT_LG) {
-    width: $BREAKPOINT_LG;
-    padding-bottom: calc(600 / 1440 * $BREAKPOINT_LG);
+  @media (min-width: var.$BREAKPOINT_LG) {
+    width: var.$BREAKPOINT_LG;
+    padding-bottom: calc(600 / 1440 * var.$BREAKPOINT_LG);
   }
-
-  /* Inside auto layout */
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
 
   .hero_contents {
     /* Hero Content */
@@ -55,11 +49,6 @@
 
     height: calc(600 / 1440 * 100vw);
 
-    // PC最大幅
-    @media (min-width: $BREAKPOINT_LG) {
-      height: calc(600 / 1440 * $BREAKPOINT_LG);
-    }
-
     background: linear-gradient(
       270deg,
       rgba(255, 255, 255, 0.5) 0%,
@@ -72,6 +61,11 @@
     align-self: stretch;
     flex-grow: 0;
     z-index: 2;
+
+    // PC最大幅
+    @media (min-width: var.$BREAKPOINT_LG) {
+      height: calc(600 / 1440 * var.$BREAKPOINT_LG);
+    }
 
     .hero_captions {
       /* Text */
@@ -106,7 +100,7 @@
         flex-grow: 0;
 
         // キャプション切り返し
-        @media (min-width: $BREAKPOINT_MD) and (max-width: 1320px) {
+        @media (min-width: var.$BREAKPOINT_MD) and (max-width: 1320px) {
           flex-direction: column;
         }
 

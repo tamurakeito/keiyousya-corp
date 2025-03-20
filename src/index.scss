@@ -1,7 +1,7 @@
+@use "@assets/styles/variables" as var;
 @import "destyle.css";
-@import "@assets/styles/variables";
 
 html {
-  background: $WHITE000;
+  background: var.$WHITE000;
   overflow-x: hidden;
 }

@@ -7,25 +7,41 @@ import Product01 from "@assets/images/product01.png";
 import Product02 from "@assets/images/product02.png";
 import classNames from "classnames";
 import { Button } from "@ui/atoms/button";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { InputUnit } from "@ui/molecules/input-unit";
 import { SelectUnit } from "@ui/molecules/select-unit";
 import { TextareaUnit } from "@ui/molecules/tesxtarea-unit";
+import toast from "react-hot-toast";
+import { Icon, iconTypes } from "tamurakeito-react-ui";
 
 export const Home = () => {
+  const homePageRef = useRef<HTMLDivElement>(null);
+  const aboutSectionRef = useRef<HTMLDivElement>(null);
+  const serviceSectionRef = useRef<HTMLDivElement>(null);
+  const contactSectionRef = useRef<HTMLDivElement>(null);
+
   const [formName, setFormName] = useState("");
   const [formMail, setFormMail] = useState("");
   const [formPhone, setFormPhone] = useState("");
   const [formOccupation, setFormOccupation] = useState("");
   const [formWorkplace, setFormWorkplace] = useState("");
   const [inquiryDetails, setInquiryDetails] = useState("");
+
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
-    <div className={classes.home}>
-      <Header />
+    <div ref={homePageRef} className={classes.home}>
+      <Header
+        homePageRef={homePageRef}
+        aboutSectionRef={aboutSectionRef}
+        serviceSectionRef={serviceSectionRef}
+        contactSectionRef={contactSectionRef}
+      />
       <HeroSection />
       <Section
+        ref={aboutSectionRef}
         title={"ABOUT"}
-        discription={"会社情報"}
+        description={"会社情報"}
         color={sectionColors.gray}
       >
         <div className={classes.about_table}>
@@ -45,7 +61,11 @@ export const Home = () => {
           />
         </div>
       </Section>
-      <Section title={"SERVICE"} discription={"サービス紹介"}>
+      <Section
+        ref={serviceSectionRef}
+        title={"SERVICE"}
+        description={"サービス紹介"}
+      >
         <div className={classes.product}>
           <div className={classes.name_and_image}>
             <div className={classes.name}>
@@ -89,8 +109,9 @@ export const Home = () => {
         </div>
       </Section>
       <Section
+        ref={contactSectionRef}
         title={"CONTACT"}
-        discription={"お問い合わせ"}
+        description={"お問い合わせ"}
         color={sectionColors.gray}
       >
         <div className={classes.explanation}>
@@ -144,15 +165,40 @@ export const Home = () => {
               value={inquiryDetails}
               setValue={setInquiryDetails}
               placeholder={"例：電子カルテの資料請求"}
-              label={"問い合わせ内容"}
+              label={"お問い合わせ内容"}
             />
           </div>
           <div className={classes.send_button}>
-            <Button label={"送信"} onClick={() => {}} />
+            <Button
+              label={
+                !isLoading ? (
+                  "送信"
+                ) : (
+                  <Icon size={16} type={iconTypes.loading} />
+                )
+              }
+              onClick={async () => {
+                if (!isLoading) {
+                  setIsLoading(true);
+                  setTimeout(() => {
+                    toast.error(
+                      "サーバーで予期せぬエラーが発生しました。時間を置いて再度実行してください。",
+                      { duration: 1500 }
+                    );
+                    setIsLoading(false);
+                  }, 3600);
+                }
+              }}
+            />
           </div>
         </div>
       </Section>
-      <Footer />
+      <Footer
+        homePageRef={homePageRef}
+        aboutSectionRef={aboutSectionRef}
+        serviceSectionRef={serviceSectionRef}
+        contactSectionRef={contactSectionRef}
+      />
     </div>
   );
 };

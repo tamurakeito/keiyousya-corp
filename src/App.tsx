@@ -1,9 +1,13 @@
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
+import { Toaster } from "react-hot-toast";
 import { Home } from "./ui/pages/home";
 
 function App() {
-  return <Home />;
+  return (
+    <>
+      <Home />
+      <Toaster />
+    </>
+  );
 }
 
 export default App;

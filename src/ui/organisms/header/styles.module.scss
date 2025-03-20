@@ -1,10 +1,13 @@
-@import "@assets/styles/variables";
-@import "@assets/styles/mixins";
+@use "@assets/styles/variables" as var;
+@use "@assets/styles/mixins" as mix;
 
 .header {
-  @include container;
+  @include mix.container;
 
   /* Header */
+  position: fixed;
+  z-index: 10;
+  top: 0;
 
   /* Auto layout */
   display: flex;
@@ -14,6 +17,8 @@
   gap: 36px;
 
   height: 60px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
 
   /* Inside auto layout */
   flex: none;
@@ -53,6 +58,7 @@
   gap: 12px;
 
   height: 20px;
+  cursor: pointer;
 
   /* Inside auto layout */
   flex: none;

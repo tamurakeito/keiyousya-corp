@@ -1,10 +1,11 @@
+import { ReactNode } from "react";
 import classes from "./styles.module.scss";
 
 export const Button = ({
   label,
   onClick,
 }: {
-  label: string;
+  label: ReactNode;
   onClick: () => void;
 }) => {
   return (

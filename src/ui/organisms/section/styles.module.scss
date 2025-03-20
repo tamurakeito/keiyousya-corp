@@ -1,8 +1,8 @@
-@import "@assets/styles/variables";
-@import "@assets/styles/mixins";
+@use "@assets/styles/variables" as var;
+@use "@assets/styles/mixins" as mix;
 
 .section {
-  @include container;
+  @include mix.container;
   /* ABOUT */
 
   /* Auto layout */
@@ -13,10 +13,10 @@
   gap: 0px;
 
   &.white {
-    background: $WHITE000;
+    background: var.$WHITE000;
   }
   &.gray {
-    background: $GRAY050;
+    background: var.$GRAY050;
   }
 
   /* Inside auto layout */
@@ -53,7 +53,7 @@
       align-items: center;
 
       /* system/gray900 */
-      color: $GRAY900;
+      color: var.$GRAY900;
 
       /* Inside auto layout */
       flex: none;

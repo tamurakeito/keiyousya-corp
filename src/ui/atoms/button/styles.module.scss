@@ -1,4 +1,4 @@
-@import "@assets/styles/variables";
+@use "@assets/styles/variables" as var;
 
 .button {
   /* Button */
@@ -15,7 +15,7 @@
   height: 40px;
 
   /* system/gray800 */
-  background: $GRAY800;
+  background: var.$GRAY800;
   border-radius: 6px;
 
   /* Inside auto layout */
@@ -31,5 +31,5 @@
   /* identical to box height, or 16px */
 
   /* system/white000 */
-  color: $WHITE000;
+  color: var.$WHITE000;
 }

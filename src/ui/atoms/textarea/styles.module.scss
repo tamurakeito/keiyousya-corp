@@ -1,4 +1,4 @@
-@import "@assets/styles/variables";
+@use "@assets/styles/variables" as var;
 
 .textarea {
   /* Textarea */
@@ -19,9 +19,24 @@
   border: 1px solid #d9d9d9;
   border-radius: 8px;
 
+  font-family: "Noto Sans JP";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+
+  color: var.$GRAY900;
+
   /* Inside auto layout */
   flex: none;
-  order: 2;
-  align-self: stretch;
+  order: 0;
   flex-grow: 1;
+  z-index: 0;
+
+  outline: none;
+
+  &::placeholder {
+    color: var.$GRAY500;
+  }
 }
