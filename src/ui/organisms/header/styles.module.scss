@@ -72,18 +72,21 @@
 
     font-family: "Noto Sans JP";
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 16px;
     line-height: 19px;
     display: flex;
     align-items: center;
 
     /* system/gray800 */
-    color: #424242;
+    color: var.$GRAY800;
 
     /* Inside auto layout */
     flex: none;
     order: 0;
     flex-grow: 0;
+  }
+  svg {
+    stroke: var.$GRAY800;
   }
 }
