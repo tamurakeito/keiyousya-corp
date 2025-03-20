@@ -14,18 +14,20 @@ export const Header = ({
   contactSectionRef: React.RefObject<HTMLDivElement | null>;
 }) => {
   return (
-    <div className={classes.header}>
-      <button
-        onClick={() => {
-          homePageRef?.current?.scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        <Logo />
-      </button>
-      <div className={classes.navigation}>
-        <NavigationTab label={"ABOUT"} sectionRef={aboutSectionRef} />
-        <NavigationTab label={"SERVICE"} sectionRef={serviceSectionRef} />
-        <NavigationTab label={"CONTACT"} sectionRef={contactSectionRef} />
+    <div className={classes.header_container}>
+      <div className={classes.header}>
+        <button
+          onClick={() => {
+            homePageRef?.current?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          <Logo />
+        </button>
+        <div className={classes.navigation}>
+          <NavigationTab label={"ABOUT"} sectionRef={aboutSectionRef} />
+          <NavigationTab label={"SERVICE"} sectionRef={serviceSectionRef} />
+          <NavigationTab label={"CONTACT"} sectionRef={contactSectionRef} />
+        </div>
       </div>
     </div>
   );

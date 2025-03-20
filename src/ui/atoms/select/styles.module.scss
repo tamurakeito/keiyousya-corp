@@ -19,6 +19,8 @@
   border: 1px solid #d9d9d9;
   border-radius: 8px;
 
+  cursor: pointer;
+
   select {
     /* Value */
 
@@ -41,6 +43,7 @@
     z-index: 0;
 
     outline: none;
+    cursor: pointer;
 
     &.placeholder {
       color: var.$GRAY500;

@@ -1,49 +1,50 @@
 @use "@assets/styles/variables" as var;
 @use "@assets/styles/mixins" as mix;
 
-.header {
-  @include mix.container;
-
-  /* Header */
+.header_container {
   position: fixed;
   z-index: 10;
   top: 0;
+  width: 100%;
 
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 10px 24px;
-  gap: 36px;
-
-  height: 60px;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(20px);
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-
-  .navigation {
-    /* Navigation */
-
+  .header {
+    @include mix.container;
     /* Auto layout */
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    padding: 6px 12px;
-    gap: 12px;
+    align-items: center;
+    padding: 10px 24px;
+    gap: 36px;
 
-    width: 408px;
-    height: 40px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
 
     /* Inside auto layout */
     flex: none;
-    order: 1;
+    order: 0;
     align-self: stretch;
     flex-grow: 0;
+
+    .navigation {
+      /* Navigation */
+
+      /* Auto layout */
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      padding: 6px 12px;
+      gap: 12px;
+
+      width: 408px;
+      height: 40px;
+
+      /* Inside auto layout */
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+    }
   }
 }
 

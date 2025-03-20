@@ -12,10 +12,9 @@ export const Textarea = ({
   return (
     <textarea
       className={classes.textarea}
+      value={value}
       onChange={(e) => setValue(e.target.value)}
       placeholder={placeholder}
-    >
-      {value}
-    </textarea>
+    ></textarea>
   );
 };

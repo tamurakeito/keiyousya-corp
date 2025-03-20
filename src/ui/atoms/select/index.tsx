@@ -1,5 +1,6 @@
 import { ChevronDown } from "react-feather";
 import classes from "./styles.module.scss";
+import { useRef } from "react";
 
 export const Select = ({
   value,
@@ -10,14 +11,21 @@ export const Select = ({
   setValue: React.Dispatch<React.SetStateAction<string>>;
   placeholder?: string;
 }) => {
+  const selectRef = useRef<HTMLSelectElement>(null);
   return (
-    <div className={classes.select}>
+    <div
+      className={classes.select}
+      onClick={() => {
+        selectRef.current?.focus();
+      }}
+    >
       <select
+        ref={selectRef}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         className={value === "" ? classes.placeholder : ""}
       >
-        <option value="" disabled selected>
+        <option value="" disabled>
           {placeholder}
         </option>
         <option value="option1">医師</option>
