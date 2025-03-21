@@ -1,4 +1,4 @@
-import { ChevronDown } from "react-feather";
+import { ChevronDown, Menu } from "react-feather";
 import classes from "./styles.module.scss";
 import Logo from "@assets/images/logo.svg";
 
@@ -7,11 +7,13 @@ export const Header = ({
   aboutSectionRef,
   serviceSectionRef,
   contactSectionRef,
+  setIsOpen,
 }: {
   homePageRef: React.RefObject<HTMLDivElement | null>;
   aboutSectionRef: React.RefObject<HTMLDivElement | null>;
   serviceSectionRef: React.RefObject<HTMLDivElement | null>;
   contactSectionRef: React.RefObject<HTMLDivElement | null>;
+  setIsOpen: (value: boolean) => void;
 }) => {
   return (
     <div className={classes.header_container}>
@@ -27,6 +29,9 @@ export const Header = ({
           <NavigationTab label={"ABOUT"} sectionRef={aboutSectionRef} />
           <NavigationTab label={"SERVICE"} sectionRef={serviceSectionRef} />
           <NavigationTab label={"CONTACT"} sectionRef={contactSectionRef} />
+        </div>
+        <div className={classes.hamburger} onClick={() => setIsOpen(true)}>
+          <Menu size={20} />
         </div>
       </div>
     </div>

@@ -1,0 +1,32 @@
+.overlay {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(245, 245, 245, 0.75);
+  backdrop-filter: blur(10px);
+
+  opacity: 0;
+  transition: 0.2s;
+
+  &.active {
+    opacity: 1;
+  }
+
+  .x_button {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 24px;
+    top: 20px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    z-index: 3;
+  }
+}

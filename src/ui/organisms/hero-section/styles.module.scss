@@ -99,8 +99,18 @@
         order: 0;
         flex-grow: 0;
 
+        // スマートフォン向け
+        @media (max-width: (var.$BREAKPOINT_SM - 1px)) {
+          display: none;
+        }
+
+        // タブレット向け
+        @media (min-width: var.$BREAKPOINT_SM) and (max-width: (var.$BREAKPOINT_MD - 1px)) {
+          display: none;
+        }
+
         // キャプション切り返し
-        @media (min-width: var.$BREAKPOINT_MD) and (max-width: 1320px) {
+        @media (min-width: var.$BREAKPOINT_MD) and (max-width: (1320px - 1px)) {
           flex-direction: column;
         }
 

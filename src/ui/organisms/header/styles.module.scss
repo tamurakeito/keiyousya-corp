@@ -20,12 +20,6 @@
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(20px);
 
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
-
     .navigation {
       /* Navigation */
 
@@ -44,6 +38,27 @@
       order: 1;
       align-self: stretch;
       flex-grow: 0;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      svg {
+        stroke: var.$GRAY800;
+      }
+    }
+
+    // スマートフォン向け
+    @media (max-width: (var.$BREAKPOINT_SM - 1px)) {
+      justify-content: space-between;
+
+      .navigation {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
     }
   }
 }
