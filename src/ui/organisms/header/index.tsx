@@ -1,6 +1,7 @@
-import { ChevronDown, Menu } from "react-feather";
+import { Menu } from "react-feather";
 import classes from "./styles.module.scss";
 import Logo from "@assets/images/logo.svg";
+import { NavigationTab } from "@ui/molecules/navigation-tab";
 
 export const Header = ({
   homePageRef,
@@ -34,26 +35,6 @@ export const Header = ({
           <Menu size={20} />
         </div>
       </div>
-    </div>
-  );
-};
-
-const NavigationTab = ({
-  label,
-  sectionRef,
-}: {
-  label: string;
-  sectionRef: React.RefObject<HTMLDivElement | null>;
-}) => {
-  return (
-    <div
-      className={classes.navigation_tab}
-      onClick={() => {
-        sectionRef?.current?.scrollIntoView({ behavior: "smooth" });
-      }}
-    >
-      <div className={classes.label}>{label}</div>
-      <ChevronDown size={20} />
     </div>
   );
 };

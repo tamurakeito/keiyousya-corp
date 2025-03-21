@@ -61,7 +61,7 @@
       flex-grow: 0;
     }
 
-    .discription {
+    .description {
       /* 詳細説明 */
       font-family: "Noto Sans JP";
       font-style: normal;
@@ -72,12 +72,27 @@
       align-items: center;
 
       /* system/gray900 */
-      color: #212121;
+      color: var.$GRAY900;
 
       /* Inside auto layout */
       flex: none;
       order: 1;
       flex-grow: 0;
+    }
+
+    // タブレット向け
+    @media (min-width: var.$BREAKPOINT_SM) and (max-width: (var.$BREAKPOINT_MD - 1px)) {
+      .title {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+      }
+
+      .description {
+        font-weight: 350;
+        font-size: 16px;
+        line-height: 19px;
+      }
     }
   }
 }

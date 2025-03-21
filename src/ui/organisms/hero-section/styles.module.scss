@@ -13,21 +13,28 @@
   padding: 0px;
   isolation: isolate;
 
-  background-image: url("@assets/images/hero-image.png");
+  background-image: url("@assets/images/hero-pc.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding-bottom: calc(600 / 1440 * 100%);
 
-  // // スマートフォン向け
-  // @media (max-width: (var.$BREAKPOINT_SM - 1px)) {
-  //   display: none;
-  // }
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 
-  // // タブレット向け
-  // @media (min-width: var.$BREAKPOINT_SM) and (max-width: (var.$BREAKPOINT_MD - 1px)) {
-  //   display: none;
-  // }
+  // スマートフォン向け
+  @media (max-width: (var.$BREAKPOINT_SM - 1px)) {
+    background-image: none;
+    padding: 0;
+  }
+
+  // タブレット向け
+  @media (min-width: var.$BREAKPOINT_SM) and (max-width: (var.$BREAKPOINT_MD - 1px)) {
+    background-image: none;
+    padding: 0;
+  }
 
   // PC最大幅
   @media (min-width: var.$BREAKPOINT_LG) {
@@ -62,6 +69,23 @@
     flex-grow: 0;
     z-index: 2;
 
+    // スマートフォン向け
+    @media (max-width: (var.$BREAKPOINT_SM - 1px)) {
+      background-image: none;
+      width: 100vw;
+      height: auto;
+      padding: 48px 24px;
+    }
+
+    // タブレット向け
+    @media (min-width: var.$BREAKPOINT_SM) and (max-width: (var.$BREAKPOINT_MD - 1px)) {
+      width: 100vw;
+      height: 70vw;
+      flex-direction: row;
+      justify-content: flex-start;
+      background: none;
+    }
+
     // PC最大幅
     @media (min-width: var.$BREAKPOINT_LG) {
       height: calc(600 / 1440 * var.$BREAKPOINT_LG);
@@ -82,6 +106,26 @@
       order: 0;
       flex-grow: 0;
 
+      // スマートフォン向け
+      @media (max-width: (var.$BREAKPOINT_SM - 1px)) {
+        // width: 100%;
+        // max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 48px 24px;
+        gap: 24px;
+      }
+
+      // タブレット向け
+      @media (min-width: var.$BREAKPOINT_SM) and (max-width: (var.$BREAKPOINT_MD - 1px)) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px 24px 48px;
+        gap: 24px;
+      }
+
       .hero_caption {
         font-family: "Noto Sans JP";
         font-style: normal;
@@ -91,8 +135,7 @@
         display: flex;
         align-items: left;
 
-        /* system/gray900 */
-        color: #212121;
+        color: var.$GRAY900;
 
         /* Inside auto layout */
         flex: none;
@@ -100,13 +143,17 @@
         flex-grow: 0;
 
         // スマートフォン向け
-        @media (max-width: (var.$BREAKPOINT_SM - 1px)) {
-          display: none;
+        @media (max-width: (600px - 1px)) {
+          flex-direction: column;
+          font-size: 24px;
+          line-height: 29px;
         }
 
-        // タブレット向け
-        @media (min-width: var.$BREAKPOINT_SM) and (max-width: (var.$BREAKPOINT_MD - 1px)) {
-          display: none;
+        // タブレット＋スマートフォン向け（文字サイズ）
+        @media (min-width: 600px) and (max-width: (var.$BREAKPOINT_MD - 1px)) {
+          flex-direction: column;
+          font-size: 32px;
+          line-height: 38px;
         }
 
         // キャプション切り返し
@@ -120,6 +167,27 @@
           line-height: 53px;
         }
       }
+    }
+  }
+
+  .hero_sp {
+    width: 42vw;
+    height: 70vw;
+
+    background: url("@assets/images/hero-sp.png");
+    background-size: cover;
+    background-position: center;
+
+    // スマートフォン向け
+    @media (max-width: (var.$BREAKPOINT_SM - 1px)) {
+      width: 100vw;
+      height: calc(10 / 6 * 100vw);
+      margin-top: 240px;
+    }
+
+    // PC以上ではなし
+    @media (min-width: var.$BREAKPOINT_MD) {
+      display: none;
     }
   }
 }

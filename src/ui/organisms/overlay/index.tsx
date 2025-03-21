@@ -34,8 +34,8 @@ export const Overlay = ({
       <div className={classNames(overlayClasses)}>
         <button className={classes.x_button} onClick={handleClose}>
           <X size={20} />
-          {children}
         </button>
+        {children}
       </div>
     )
   );

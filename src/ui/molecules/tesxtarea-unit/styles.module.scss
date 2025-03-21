@@ -1,3 +1,5 @@
+@use "@assets/styles/variables" as var;
+
 .textarea_unit {
   /* Input Field */
 
@@ -8,7 +10,8 @@
   padding: 0px;
   gap: 8px;
 
-  width: 240px;
+  // width: 240px;
+  width: 100%;
 
   /* Inside auto layout */
   flex: none;
@@ -41,5 +44,11 @@
     /* or 22px */
 
     color: #757575;
+  }
+
+  // タブレット以上
+  @media (min-width: var.$BREAKPOINT_SM) {
+    width: 508px;
+    height: 300px;
   }
 }

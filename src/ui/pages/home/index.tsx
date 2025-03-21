@@ -14,6 +14,7 @@ import { TextareaUnit } from "@ui/molecules/tesxtarea-unit";
 import toast from "react-hot-toast";
 import { Icon, iconTypes } from "tamurakeito-react-ui";
 import { Overlay } from "@ui/organisms/overlay";
+import { NavigationTab } from "@ui/molecules/navigation-tab";
 
 export const Home = () => {
   const homePageRef = useRef<HTMLDivElement>(null);
@@ -205,7 +206,24 @@ export const Home = () => {
         />
       </div>
       <Overlay isOpen={isOpen} setIsOpen={setIsOpen}>
-        button
+        <NavigationTab
+          className={classes.tab}
+          label={"ABOUT"}
+          sectionRef={aboutSectionRef}
+          onClick={() => setIsOpen(false)}
+        />
+        <NavigationTab
+          className={classes.tab}
+          label={"SERVICE"}
+          sectionRef={serviceSectionRef}
+          onClick={() => setIsOpen(false)}
+        />
+        <NavigationTab
+          className={classes.tab}
+          label={"CONTACT"}
+          sectionRef={contactSectionRef}
+          onClick={() => setIsOpen(false)}
+        />
       </Overlay>
     </>
   );

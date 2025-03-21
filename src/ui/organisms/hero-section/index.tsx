@@ -15,6 +15,7 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
+      <div className={classes.hero_sp} />
     </div>
   );
 };

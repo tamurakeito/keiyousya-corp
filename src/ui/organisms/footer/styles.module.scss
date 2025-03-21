@@ -30,9 +30,6 @@
     padding: 0px;
     gap: 96px;
 
-    width: 323px;
-    height: 300px;
-
     /* Inside auto layout */
     flex: none;
     order: 0;
@@ -79,6 +76,25 @@
         order: 0;
         flex-grow: 0;
       }
+    }
+  }
+
+  // スマートフォン向け
+  @media (max-width: (var.$BREAKPOINT_SM - 1px)) {
+    gap: 96px;
+
+    .logo_and_navigation {
+      flex-direction: column;
+      gap: 48px;
+    }
+  }
+
+  // タブレット向け
+  @media (min-width: var.$BREAKPOINT_SM) and (max-width: (var.$BREAKPOINT_MD - 1px)) {
+    gap: 96px;
+
+    .logo_and_navigation {
+      gap: 48px;
     }
   }
 
