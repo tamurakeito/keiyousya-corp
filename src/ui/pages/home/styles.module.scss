@@ -403,6 +403,23 @@
   color: var.$BLAK1000;
 }
 
+.mail_address {
+  font-family: "Noto Sans JP";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  margin: {
+    top: 48px;
+  }
+
+  color: var.$GRAY500;
+
+  gap: 8px;
+}
+
 .notes {
   /* discription */
 

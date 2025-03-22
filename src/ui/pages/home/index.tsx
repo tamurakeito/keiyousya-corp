@@ -1,20 +1,15 @@
-import { HeroSection } from "@ui/organisms/hero-section";
-import classes from "./styles.module.scss";
-import { Header } from "@ui/organisms/header";
-import { Section, sectionColors } from "@ui/organisms/section";
+import { NavigationTab } from "@ui/molecules/navigation-tab";
 import { Footer } from "@ui/organisms/footer";
+import { Header } from "@ui/organisms/header";
+import { HeroSection } from "@ui/organisms/hero-section";
+import { Overlay } from "@ui/organisms/overlay";
+import { Section, sectionColors } from "@ui/organisms/section";
+import classNames from "classnames";
+import { useRef, useState } from "react";
+import classes from "./styles.module.scss";
 import Product01 from "@assets/images/product01.png";
 import Product02 from "@assets/images/product02.png";
-import classNames from "classnames";
-import { Button } from "@ui/atoms/button";
-import { useRef, useState } from "react";
-import { InputUnit } from "@ui/molecules/input-unit";
-import { SelectUnit } from "@ui/molecules/select-unit";
-import { TextareaUnit } from "@ui/molecules/tesxtarea-unit";
-import toast from "react-hot-toast";
-import { Icon, iconTypes } from "tamurakeito-react-ui";
-import { Overlay } from "@ui/organisms/overlay";
-import { NavigationTab } from "@ui/molecules/navigation-tab";
+import { ExternalLink } from "react-feather";
 
 export const Home = () => {
   const homePageRef = useRef<HTMLDivElement>(null);
@@ -22,15 +17,45 @@ export const Home = () => {
   const serviceSectionRef = useRef<HTMLDivElement>(null);
   const contactSectionRef = useRef<HTMLDivElement>(null);
 
-  const [formName, setFormName] = useState("");
-  const [formMail, setFormMail] = useState("");
-  const [formPhone, setFormPhone] = useState("");
-  const [formOccupation, setFormOccupation] = useState("");
-  const [formWorkplace, setFormWorkplace] = useState("");
-  const [inquiryDetails, setInquiryDetails] = useState("");
+  // const [formName, setFormName] = useState("");
+  // const [formMail, setFormMail] = useState("");
+  // const [formPhone, setFormPhone] = useState("");
+  // const [formOccupation, setFormOccupation] = useState("");
+  // const [formWorkplace, setFormWorkplace] = useState("");
+  // const [inquiryDetails, setInquiryDetails] = useState("");
 
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  // const validation = (
+  //   name: string,
+  //   mail: string,
+  //   occupation: string,
+  //   details: string
+  // ) => {
+  //   if (!name.trim()) {
+  //     toast.error("名前を入力してください。", { duration: 1000 });
+  //     return false;
+  //   } else if (!mail.trim()) {
+  //     toast.error("メールアドレスを入力してください。", { duration: 1000 });
+  //     return false;
+  //   } else if (!occupation.trim()) {
+  //     toast.error("ご職業を入力してください。", { duration: 1000 });
+  //     return false;
+  //   } else if (!details.trim()) {
+  //     toast.error("お問い合わせ内容を入力してください。", { duration: 1000 });
+  //     return false;
+  //   }
+  //   return true;
+  // };
+
+  const email = "info@keiyousya.com";
+  const subject = "株式会社慧陽社HP｜事業内容に関する問い合わせ";
+  const body = "";
+
+  const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(
+    subject || ""
+  )}&body=${encodeURIComponent(body || "")}`;
 
   return (
     <>
@@ -120,8 +145,13 @@ export const Home = () => {
           color={sectionColors.gray}
         >
           <div className={classes.explanation}>
-            当社事業へのお問い合わせは、下記フォームにて承っております。
+            {/* 当社事業へのお問い合わせは、下記フォームにて承っております。 */}
+            当社事業へのお問い合わせは、下記メールアドレスよりお願いいたします。
           </div>
+          <a className={classes.mail_address} href={mailtoUrl}>
+            {email}
+            <ExternalLink size={16} />
+          </a>
           <div className={classes.notes}>
             <div className={classes.note}>
               通常、1~3営業日程度で担当者よりご連絡させていただきます。
@@ -130,7 +160,7 @@ export const Home = () => {
               ※ お問い合わせ内容によっては、お時間がかかる場合がございます。
             </div>
           </div>
-          <div className={classes.form_area}>
+          {/* <div className={classes.form_area}>
             <div className={classes.form}>
               <div className={classes.form_parameter}>
                 <InputUnit
@@ -138,7 +168,7 @@ export const Home = () => {
                   isRequired={true}
                   value={formName}
                   setValue={setFormName}
-                  placeholder={"慧陽　太郎"}
+                  placeholder={"慧陽 太郎"}
                 />
                 <InputUnit
                   label={"連絡先メールアドレス"}
@@ -183,7 +213,15 @@ export const Home = () => {
                   )
                 }
                 onClick={async () => {
-                  if (!isLoading) {
+                  if (
+                    validation(
+                      formName,
+                      formMail,
+                      formOccupation,
+                      inquiryDetails
+                    ) &&
+                    !isLoading
+                  ) {
                     setIsLoading(true);
                     setTimeout(() => {
                       toast.error(
@@ -196,7 +234,7 @@ export const Home = () => {
                 }}
               />
             </div>
-          </div>
+          </div> */}
         </Section>
         <Footer
           homePageRef={homePageRef}
