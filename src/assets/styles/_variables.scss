@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+
 /* Size */
 $BREAKPOINT_SM: 767px;
 $BREAKPOINT_MD: 1023px;
@@ -15,3 +17,6 @@ $GRAY700: #616161;
 $GRAY800: #424242;
 $GRAY900: #212121;
 $BLAK1000: #000000;
+
+/* Font */
+$NOTO_SANS_JP: "Noto Sans JP", sans-serif;

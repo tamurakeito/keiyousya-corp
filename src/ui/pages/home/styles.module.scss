@@ -45,7 +45,7 @@
 
       width: 160px;
 
-      font-family: "Noto Sans JP";
+      font-family: var.$NOTO_SANS_JP;
       font-style: normal;
       font-weight: 350;
       font-size: 20px;
@@ -65,7 +65,7 @@
     &_value {
       /* 値 */
 
-      font-family: "Noto Sans JP";
+      font-family: var.$NOTO_SANS_JP;
       font-style: normal;
       font-weight: 350;
       font-size: 20px;
@@ -169,7 +169,7 @@
       .product_name {
         /* 統合診療システム｜Model 01 */
 
-        font-family: "Noto Sans JP";
+        font-family: var.$NOTO_SANS_JP;
         font-style: normal;
         font-weight: 500;
         font-size: 30px;
@@ -189,7 +189,7 @@
       .description {
         /* （2025年7月頃 販売開始予定） */
 
-        font-family: "Noto Sans JP";
+        font-family: var.$NOTO_SANS_JP;
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
@@ -273,7 +273,7 @@
     flex-grow: 0;
 
     .paragraph {
-      font-family: "Noto Sans JP";
+      font-family: var.$NOTO_SANS_JP;
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
@@ -389,7 +389,7 @@
 .explanation {
   /* 当社事業へのお問い合わせは、下記フォームにて承っております。 */
 
-  font-family: "Noto Sans JP";
+  font-family: var.$NOTO_SANS_JP;
   font-style: normal;
   font-weight: 350;
   font-size: 16px;
@@ -404,7 +404,7 @@
 }
 
 .mail_address {
-  font-family: "Noto Sans JP";
+  font-family: var.$NOTO_SANS_JP;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -416,8 +416,14 @@
   }
 
   color: var.$GRAY500;
+  transition: 0.2s;
+  text-decoration: underline;
 
   gap: 8px;
+
+  &:hover {
+    color: var.$GRAY700;
+  }
 }
 
 .notes {
@@ -438,7 +444,7 @@
   .note {
     /* 通常、1~3営業日程度で担当者よりご連絡させていただきます。 */
 
-    font-family: "Noto Sans JP";
+    font-family: var.$NOTO_SANS_JP;
     font-style: normal;
     font-weight: 350;
     font-size: 16px;
@@ -555,7 +561,7 @@
   flex-grow: 0;
   z-index: 0;
 
-  font-family: "Noto Sans JP";
+  font-family: var.$NOTO_SANS_JP;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
