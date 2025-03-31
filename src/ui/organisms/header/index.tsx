@@ -10,11 +10,11 @@ export const Header = ({
   contactSectionRef,
   setIsOpen,
 }: {
-  homePageRef: React.RefObject<HTMLDivElement | null>;
-  aboutSectionRef: React.RefObject<HTMLDivElement | null>;
-  serviceSectionRef: React.RefObject<HTMLDivElement | null>;
-  contactSectionRef: React.RefObject<HTMLDivElement | null>;
-  setIsOpen: (value: boolean) => void;
+  homePageRef?: React.RefObject<HTMLDivElement | null>;
+  aboutSectionRef?: React.RefObject<HTMLDivElement | null>;
+  serviceSectionRef?: React.RefObject<HTMLDivElement | null>;
+  contactSectionRef?: React.RefObject<HTMLDivElement | null>;
+  setIsOpen?: (value: boolean) => void;
 }) => {
   return (
     <div className={classes.header_container}>
@@ -27,11 +27,20 @@ export const Header = ({
           <Logo />
         </button>
         <div className={classes.navigation}>
-          <NavigationTab label={"ABOUT"} sectionRef={aboutSectionRef} />
-          <NavigationTab label={"SERVICE"} sectionRef={serviceSectionRef} />
-          <NavigationTab label={"CONTACT"} sectionRef={contactSectionRef} />
+          {aboutSectionRef && (
+            <NavigationTab label={"ABOUT"} sectionRef={aboutSectionRef} />
+          )}
+          {serviceSectionRef && (
+            <NavigationTab label={"SERVICE"} sectionRef={serviceSectionRef} />
+          )}
+          {contactSectionRef && (
+            <NavigationTab label={"CONTACT"} sectionRef={contactSectionRef} />
+          )}
         </div>
-        <div className={classes.hamburger} onClick={() => setIsOpen(true)}>
+        <div
+          className={classes.hamburger}
+          onClick={() => setIsOpen && setIsOpen(true)}
+        >
           <Menu size={20} />
         </div>
       </div>

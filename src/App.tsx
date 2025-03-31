@@ -1,10 +1,10 @@
 import { Toaster } from "react-hot-toast";
-import { Home } from "./ui/pages/home";
+import { RouteSelector } from "@ui/routes";
 
 function App() {
   return (
     <>
-      <Home />
+      <RouteSelector />
       <Toaster />
     </>
   );

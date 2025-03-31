@@ -27,7 +27,7 @@
     "paths": {
       // "@/*": ["*"],
       "@assets/*": ["assets/*"],
-      "@hooks/*": ["hooks/*"],
+      "@routes/*": ["routes/*"],
       "@ui/*": ["ui/*"]
     }
   },
