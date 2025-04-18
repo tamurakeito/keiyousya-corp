@@ -1,11 +1,13 @@
-import { Toaster } from "react-hot-toast";
-import { Home } from "./ui/pages/home";
+// import { Toaster } from "react-hot-toast";
+// import { Home } from "./ui/pages/home";
+import { Corp } from "@ui/pages/corp";
 
 function App() {
   return (
     <>
-      <Home />
-      <Toaster />
+      {/* <Home /> */}
+      <Corp />
+      {/* <Toaster /> */}
     </>
   );
 }

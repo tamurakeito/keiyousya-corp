@@ -59,7 +59,7 @@ export const Home = () => {
 
   return (
     <>
-      <div ref={homePageRef} className={classes.home}>
+      {<div ref={homePageRef} className={classes.home}>
         <Header
           homePageRef={homePageRef}
           aboutSectionRef={aboutSectionRef}
@@ -242,7 +242,7 @@ export const Home = () => {
           serviceSectionRef={serviceSectionRef}
           contactSectionRef={contactSectionRef}
         />
-      </div>
+      </div>}
       <Overlay isOpen={isOpen} setIsOpen={setIsOpen}>
         <NavigationTab
           className={classes.tab}
