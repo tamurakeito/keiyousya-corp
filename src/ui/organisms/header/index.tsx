@@ -37,9 +37,11 @@ export const Header = ({
             <NavigationTab label={"CONTACT"} sectionRef={contactSectionRef} />
           )}
         </div>
-        <div className={classes.hamburger} onClick={() => setIsOpen(true)}>
-          <Menu size={20} />
-        </div>
+        {setIsOpen && (
+          <div className={classes.hamburger} onClick={() => setIsOpen(true)}>
+            <Menu size={20} />
+          </div>
+        )}
       </div>
     </div>
   );
