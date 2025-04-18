@@ -5,13 +5,17 @@ import { HeroSection } from "@ui/organisms/hero-section";
 import { Overlay } from "@ui/organisms/overlay";
 import { Section, sectionColors } from "@ui/organisms/section";
 import classNames from "classnames";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import classes from "./styles.module.scss";
 import Product01 from "@assets/images/product01.png";
 import Product02 from "@assets/images/product02.png";
 import { ExternalLink } from "react-feather";
 
 export const Home = () => {
+  useEffect(() => {
+    document.title = "株式会社慧陽社｜電子カルテ・診療システムの開発販売";
+  }, []);
+
   const homePageRef = useRef<HTMLDivElement>(null);
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   const serviceSectionRef = useRef<HTMLDivElement>(null);
