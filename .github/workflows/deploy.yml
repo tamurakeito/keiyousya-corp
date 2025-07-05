@@ -1,0 +1,45 @@
+name: Deploy Corporate Site to Google Cloud Storage
+
+# 'main'ブランチへのプッシュをトリガーとする
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: "read"
+      id-token: "write" # GCP認証に必要
+
+    steps:
+      # 1. リポジトリのソースコードをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Node.js環境をセットアップ
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22" # Astroプロジェクトのバージョンに合わせてください
+          cache: "npm"
+
+      # 3. Astroプロジェクトの依存関係インストールとビルド
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Astro site
+        run: npm run build
+
+      # 4. Google Cloudへの認証 (Secretsを利用)
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
+          service_account: ${{ secrets.GCP_SA_EMAIL }}
+
+      # 5. Cloud Storageにデプロイ
+      - name: Deploy to Cloud Storage
+        run: |
+          gcloud storage rsync ./dist gs://keiyousha --recursive --delete-unmatched-destination-objects
