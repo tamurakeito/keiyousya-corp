@@ -5,30 +5,7 @@ on:
     branches:
       - main
 
-permissions:
-  contents: read
-  id-token: write
-
 jobs:
-  auth:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Auth
-        uses: google-github-actions/auth@v2
-        with:
-          project_id: ${{ env.PROJECT_ID }}
-          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
-          service_account: ${{ secrets.GCP_SA_EMAIL }}
-
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v2
-
-      - name: Use Cloud SDK
-        run: gcloud config list
-
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
@@ -58,6 +35,9 @@ jobs:
       - name: Build Astro site
         run: pnpm run build
 
+      - name: List build output
+        run: ls -la dist/
+
       - name: Authenticate to Google Cloud
         id: auth
         uses: google-github-actions/auth@v2
@@ -65,6 +45,21 @@ jobs:
           workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
           service_account: ${{ secrets.GCP_SA_EMAIL }}
 
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Cloud Storage for static website
+        run: |
+          gcloud storage buckets update gs://keiyousha \
+            --web-main-page-suffix=index.html \
+            --web-error-page=404.html
+
       - name: Deploy to Cloud Storage
         run: |
           gcloud storage rsync ./dist gs://keiyousha --recursive --delete-unmatched-destination-objects
+          echo "Deployment completed successfully!"
+
+      - name: Verify deployment
+        run: |
+          echo "Deployed files:"
+          gcloud storage ls gs://keiyousha/ --recursive
