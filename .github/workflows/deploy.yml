@@ -16,19 +16,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # pnpmをインストールし、キャッシュを有効にする
-      - name: Setup Node.js and pnpm
+      # pnpm公式アクションでpnpm自体をインストール
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9 # pnpmのバージョンを指定
+
+      # Node.jsをセットアップし、pnpmのキャッシュを設定
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          pnpm-version: "latest" # または '9' などバージョン指定も可
-          cache: "pnpm"
+          cache: "pnpm" # ここでpnpmのキャッシュを指定
 
-      # pnpm install を実行
       - name: Install dependencies
         run: pnpm install
 
-      # pnpm run build を実行
       - name: Build Astro site
         run: pnpm run build
 
