@@ -1,7 +1,0 @@
-@use "@assets/styles/variables" as var;
-
-@mixin container {
-  width: 100%;
-  max-width: var.$BREAKPOINT_LG;
-  margin: 0 auto;
-}
