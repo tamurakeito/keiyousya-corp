@@ -1,11 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import logo from '@/assets/logo.svg';
-// import Tab from '@/components/Tab.astro';
 ---
 
 <header class="fixed top-0 left-0 z-10 px-[24px] py-[10px] w-full">
   <button>
-    <img src={logo.src} alt="logo" />
+    <Image src={logo} alt="logo" fetchpriority="high"/>
   </button>
 </header>
 

@@ -16,18 +16,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # pnpm公式アクションでpnpm自体をインストール
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 9 # pnpmのバージョンを指定
+          version: 9
 
-      # Node.jsをセットアップし、pnpmのキャッシュを設定
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: "pnpm" # ここでpnpmのキャッシュを指定
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install
@@ -46,10 +44,13 @@ jobs:
         run: |
           gcloud storage rsync ./dist gs://keiyousha --recursive --delete-unmatched-destination-objects
 
-      # - name: Upload files to Cloud Storage
-      #   id: "upload-files"
-      #   uses: "google-github-actions/upload-cloud-storage@v2"
-      #   with:
-      #     path: "dist"
-      #     destination: "keiyousha"
-      #     parent: false
+      # HTMLファイル: 常に最新のものを表示させるため、キャッシュしない（毎回サーバーに確認）
+      # Astroが生成するハッシュ付きのCSS/JSアセット: 1年間キャッシュし、不変（immutable）とマーク
+      # その他の画像やフォントファイル: 1年間キャッシュ
+      - name: Set Cache-Control headers
+        run: |
+          echo "Setting Cache-Control headers..."
+          gcloud storage objects update gs://keiyousha/**/*.html --cache-control="no-cache"
+          gcloud storage objects update gs://keiyousha/_astro/** --cache-control="public, max-age=31536000, immutable"
+          gcloud storage objects update gs://keiyousha/**/*.{css,js,png,jpg,jpeg,gif,svg,ico,webp,woff,woff2} -r --cache-control="public, max-age=31536000, immutable"
+          echo "Cache-Control headers set successfully."
