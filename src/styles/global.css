@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Noto Sans JP フォントのインポート */
+/* Noto Sans JP フォントのインポート
 @font-face {
   font-family: "Noto Sans JP";
   src: url("../assets/fonts/NotoSansJP-Regular.ttf") format("truetype");
@@ -15,7 +15,7 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 @layer base {
   html {
