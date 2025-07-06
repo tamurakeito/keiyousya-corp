@@ -44,13 +44,19 @@ jobs:
         run: |
           gcloud storage rsync ./dist gs://keiyousha --recursive --delete-unmatched-destination-objects
 
-      # HTMLファイル: 常に最新のものを表示させるため、キャッシュしない（毎回サーバーに確認）
-      # Astroが生成するハッシュ付きのCSS/JSアセット: 1年間キャッシュし、不変（immutable）とマーク
-      # その他の画像やフォントファイル: 1年間キャッシュ
       - name: Set Cache-Control headers
         run: |
           echo "Setting Cache-Control headers..."
+
+          # 1. HTMLファイル: 常に最新のものを表示させるため、キャッシュしない
           gcloud storage objects update gs://keiyousha/**/*.html --cache-control="no-cache"
+
+          # 2. Astroが生成する全アセット (_astro/ 以下): 1年間キャッシュし、不変（immutable）とマーク
+          #    これでCSS, JS, フォント, 最適化された画像などがすべて対象になります。
           gcloud storage objects update gs://keiyousha/_astro/** --cache-control="public, max-age=31536000, immutable"
-          gcloud storage objects update gs://keiyousha/**/*.{css,js,png,jpg,jpeg,gif,svg,ico,webp,woff,woff2} -r --cache-control="public, max-age=31536000, immutable"
+
+          # 3. ルートに配置されたfaviconなど、個別のファイル: 1年間キャッシュ
+          #    ファイルが存在しなくてもエラーにならないように `|| true` を追加
+          gcloud storage objects update gs://keiyousha/favicon.svg --cache-control="public, max-age=31536000, immutable" || true
+
           echo "Cache-Control headers set successfully."
